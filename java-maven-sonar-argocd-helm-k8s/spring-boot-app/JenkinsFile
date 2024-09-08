@@ -23,10 +23,7 @@ pipeline {
         stage("Sonarqube Analysis") {
             steps {
                 withSonarQubeEnv('sonar-server') {
-                    sh '''
-                        cd java-maven-sonar-argocd-helm-k8s/spring-boot-app 
-                        && mvn sonar:sonar
-                    '''
+                    sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar'
                 }
             }
         }
@@ -49,6 +46,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
+        }
+    }
 }
